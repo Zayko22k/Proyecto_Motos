@@ -8,16 +8,6 @@ use Illuminate\Http\Request;
 
 class VehiculoController extends Controller
 {
-    public function getMoto()
-    {
-        $motos = Vehiculo::orderby('idvehiculo','asc')->select('*')->get(); 
-     
-    
-        $response['data'] = $motos;
-   
-        return response()->json($response);
-    }
-
     /**
      * Muestra una lista de vehiculos
      *
