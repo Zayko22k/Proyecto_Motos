@@ -17,9 +17,11 @@ use App\Http\Controllers\MarcaController;
 Route::get('/', function () {
     return view('welcome');
 });
+
 /* Ruta  vista admin -crud vehiculo- */
 Route::get('adminVehiculo', [VehiculoController::class, 'indexAdmin'])
 ->name('vehiculo.adminVehiculo');
+
 /*lista de rutas vehiculo*/
 Route::resource('vehiculo', VehiculoController::class);
 
