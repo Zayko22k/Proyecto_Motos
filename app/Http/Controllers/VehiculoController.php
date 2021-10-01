@@ -42,6 +42,7 @@ class VehiculoController extends Controller
         'vehiculo.created_at',
         'marca.nombre')
         ->join('marca','marca.idmarca', '=', 'vehiculo.marca_idmarca')
+        ->orderBy('idvehiculo', 'asc')
         ->get();
         $contadorVehiculo = $datosVehiculo->count();
 
@@ -98,8 +99,14 @@ class VehiculoController extends Controller
      */
     public function show(Vehiculo $vehiculo)
     {
-        $datosVehiculo = Vehiculo::select('*',
-        'marca.nombre')
+        $datosVehiculo = Vehiculo::select(
+            'vehiculo.idvehiculo',
+            'vehiculo.modelo',
+            'vehiculo.motor',
+            'vehiculo.anio',
+            'vehiculo.imagen',
+            'vehiculo.created_at',
+            'marca.nombre')
         ->join('marca','marca.idmarca', '=', 'vehiculo.marca_idmarca')
         ->findOrFail($vehiculo->idvehiculo);
 

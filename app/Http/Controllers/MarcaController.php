@@ -32,8 +32,7 @@ class MarcaController extends Controller
     {
         $datoMarca = Marca::all();
 
-      return view('marca.create',[
-          'datoMarca'=>$datoMarca]);
+      return view('marca.create', compact('datoMarca'));
     }
 
     /**
@@ -51,8 +50,6 @@ class MarcaController extends Controller
             'nombre' => 'required'
         ]);
 
-       
-        $created_at = Carbon::now()->toDateTimeString(); 
         $input = $request->all();
       
         Marca::create($input);
@@ -102,7 +99,7 @@ class MarcaController extends Controller
 
     $input = $request->all();
     $marca->update($input);
-    return redirect()->route('marca.adminMarca')->with('success', 'El vehiculo ha sido actualizado');
+    return redirect()->route('marca.adminMarca')->with('success', 'La marca ha sido actualizada');
 }
 
     /**

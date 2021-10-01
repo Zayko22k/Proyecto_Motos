@@ -9,6 +9,9 @@
             <h3>Nombre</h3>
             <i> {{ $datosMarca->nombre }}</i>
             <hr>
+            <h3>Registrado el</h3>
+            <i> {{ $datosMarca->created_at }}</i>
+            <hr>
             <div class="row">
                 <div class="col-md-12">
                     <a class="btn btn-warning" href="{{ route('marca.adminMarca') }}">Volver</a>
